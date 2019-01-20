@@ -132,13 +132,10 @@ def shoe_size(name)
       end
   end
 end
-
-
-
-
-
-
 end
+
+
+
  
 
 def team_colors(teamname)
@@ -157,11 +154,35 @@ def team_names
 end
 
 def player_numbers(team)
-  
+   brooklyn = []
+   charlotte = []
+   if team == "Brooklyn Nets"
+      game_hash[:home][:players].each do |guy, key |
+          key.collect do |a, b|
+            if a == :number
+              brooklyn << b
+            end
+          end
+      end
+            return brooklyn.sort
+   end
+   
+     if team == "Charlotte Hornets"
+      game_hash[:away][:players].each do |guy, key |
+          key.collect do |c, d|
+            if c == :number
+              charlotte << d
+            end
+          end
+      end
+   end
+       charlotte
+end
+
+
+
+def player_stats(teammember)
   
 end
 
-def player_stats(member)
-  
-end
 
