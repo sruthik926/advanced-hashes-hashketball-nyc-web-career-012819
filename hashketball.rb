@@ -101,36 +101,45 @@ def num_points_scored(player)
    game_hash.each do |location,team_data|
        team_data.each do |attribute, data|
           if attribute == :players
-            data.each do |data_item, key|
-              if data_item == player
-              binding.pry
-             end
-             
+              data.each do |member, key|
+                if member == player
+                  key.each do |piece, keyval|
+                    if piece == :points
+                       return keyval
+                    end
+                  end
+                end
+              end
           end
        end
-          
-    end
+   end
 end
-
-      
 
 
 def shoe_size(name)
- game_hash.each do |location,team_data|
-       team_data.each do |attribute, data|
+  game_hash.each do |location,team_data|
+      team_data.each do |attribute, data|
           if attribute == :players
-            data.each do |data_item, key|
-              if data_item == player
-              binding.pry
-             end
-             
+              data.each do |member, key|
+                if member == name
+                    key.each do |piece, keyval|
+                        if piece == :shoe
+                          return keyval
+                        end
+                    end
+              end
           end
-       end
-          
-    end
-  
+      end
+  end
 end
 
+
+
+
+
+
+end
+ 
 
 def team_colors(teamname)
   if teamname == "Brooklyn Nets"
@@ -156,6 +165,3 @@ def player_stats(member)
   
 end
 
-def big_shoe_rebounds
-  
-end
