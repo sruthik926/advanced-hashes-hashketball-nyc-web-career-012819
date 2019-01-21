@@ -213,10 +213,21 @@ def big_shoe_rebounds
        largest_shoe
        player
        
-   game_hash.each do |one, two|   
-       one.each do |three|
+   game_hash.each do |one, two|  
+     two.each do |three, four|
+       if three == :players
+         four.each do |five, eight|
+           if five == player
+              eight.each do |nine, ten|
+                 if nine == :rebounds
+                    return ten
+                 end
+              end
+           end
+         end
        end
-   end    
+    end 
+  end 
 end
 
 
