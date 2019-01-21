@@ -136,8 +136,6 @@ end
 
 
 
- 
-
 def team_colors(teamname)
   if teamname == "Brooklyn Nets"
      return game_hash[:home][:colors][0].split(", ")
@@ -182,7 +180,64 @@ end
 
 
 def player_stats(teammember)
-  
+   game_hash[:home][:players].each do |guy, key |
+      if guy == teammember
+        return key
+       end
+   end
+   game_hash[:away][:players].each do |guy, key |
+      if guy == teammember
+        return key
+       end
+   end
 end
 
 
+def big_shoe_rebounds
+  largest_shoe = 0
+  player = nil
+  game_hash.each do |x, y|
+     y.each do |g, h|
+       if g == :players
+         h.each do |i, j|
+           j.each do |k, l|
+            if k == :shoe && l > largest_shoe
+               largest_shoe = l
+               player = i
+            end
+           end
+         end
+       end
+    end
+  end
+       largest_shoe
+       player
+       
+   game_hash.each do |one, two|   
+       one.each do |three|
+       end
+   end    
+end
+
+
+
+
+
+
+=begin def big_shoe_rebounds
+  largest_shoe = 0
+  player = nil
+  game_hash[:home][:players].each do |guy, key |
+    key.each do |d, e|
+       if d == :shoe && e > largest_shoe
+           largest_shoe = e
+           player = guy
+         end
+       end
+    end
+      largest_shoe
+      player
+      binding.pry
+end
+
+=end
