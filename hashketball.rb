@@ -231,24 +231,14 @@ def big_shoe_rebounds
 end
 
 
-
-
-
-
-=begin def big_shoe_rebounds
-  largest_shoe = 0
-  player = nil
-  game_hash[:home][:players].each do |guy, key |
-    key.each do |d, e|
-       if d == :shoe && e > largest_shoe
-           largest_shoe = e
-           player = guy
-         end
-       end
+def most_points_scored
+  game_hash.each do |location,team_data|
+    team_data[:players].each do |player_name, stat|
+       puts num_points_scored(player_name)
     end
-      largest_shoe
-      player
-      binding.pry
+  end
+
 end
 
-=end
+
+
