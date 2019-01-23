@@ -232,12 +232,20 @@ end
 
 
 def most_points_scored
+  max_point = 0
+  player = nil
   game_hash.each do |location,team_data|
     team_data[:players].each do |player_name, stat|
        puts num_points_scored(player_name)
+       
+       if num_points_scored(player_name) > max_point
+          max_point = num_points_scored(player_name)  
+       end
     end
   end
-
+        max_point
+        binding.pry
+        
 end
 
 
