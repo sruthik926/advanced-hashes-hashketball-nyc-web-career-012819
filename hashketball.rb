@@ -240,12 +240,12 @@ def most_points_scored
        
        if num_points_scored(player_name) > max_point
           max_point = num_points_scored(player_name)  
+          player = player_name
+         # binding.pry
        end
     end
   end
-        max_point
-        binding.pry
-        
+     player
 end
 
 
